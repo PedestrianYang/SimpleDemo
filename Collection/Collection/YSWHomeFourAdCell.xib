@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="YSWHomeFourAdCell" id="KGk-i7-Jjw" customClass="YSWHomeFourAdCell">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Su9-wN-7lp" customClass="YSWImageClickView">
+                        <rect key="frame" x="0.0" y="0.0" width="90" height="99"/>
+                    </imageView>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7lc-56-7au" customClass="YSWImageClickView">
+                        <rect key="frame" x="180" y="0.0" width="90" height="99"/>
+                    </imageView>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-R7-hPR" customClass="YSWImageClickView">
+                        <rect key="frame" x="270" y="0.0" width="90" height="99"/>
+                    </imageView>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jfB-JU-nPJ" customClass="YSWImageClickView">
+                        <rect key="frame" x="90" y="0.0" width="90" height="99"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Su9-wN-7lp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4Nd-9m-Vaz"/>
+                    <constraint firstItem="Su9-wN-7lp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6AS-OU-9qS"/>
+                    <constraint firstAttribute="trailing" secondItem="ya3-R7-hPR" secondAttribute="trailing" id="6ne-q5-yot"/>
+                    <constraint firstAttribute="bottom" secondItem="ya3-R7-hPR" secondAttribute="bottom" id="E1A-BR-M3j"/>
+                    <constraint firstItem="7lc-56-7au" firstAttribute="leading" secondItem="jfB-JU-nPJ" secondAttribute="trailing" id="Hr8-GS-AOI"/>
+                    <constraint firstItem="jfB-JU-nPJ" firstAttribute="width" secondItem="Su9-wN-7lp" secondAttribute="width" id="JmU-Na-ppt"/>
+                    <constraint firstItem="7lc-56-7au" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UYe-ya-w7q"/>
+                    <constraint firstItem="jfB-JU-nPJ" firstAttribute="leading" secondItem="Su9-wN-7lp" secondAttribute="trailing" id="Wgp-6t-OPl"/>
+                    <constraint firstItem="7lc-56-7au" firstAttribute="width" secondItem="Su9-wN-7lp" secondAttribute="width" id="ZbJ-1w-VjQ"/>
+                    <constraint firstItem="ya3-R7-hPR" firstAttribute="leading" secondItem="7lc-56-7au" secondAttribute="trailing" id="alS-Fi-SoE"/>
+                    <constraint firstItem="jfB-JU-nPJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="d9D-Rw-T2R"/>
+                    <constraint firstItem="Su9-wN-7lp" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1:4" id="eKN-4Z-b8k"/>
+                    <constraint firstAttribute="bottom" secondItem="jfB-JU-nPJ" secondAttribute="bottom" id="gGe-Ky-Uyf"/>
+                    <constraint firstItem="ya3-R7-hPR" firstAttribute="width" secondItem="Su9-wN-7lp" secondAttribute="width" id="hbt-aG-wbb"/>
+                    <constraint firstAttribute="bottom" secondItem="Su9-wN-7lp" secondAttribute="bottom" id="lbp-e2-Lce"/>
+                    <constraint firstItem="ya3-R7-hPR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ltQ-8n-pMh"/>
+                    <constraint firstAttribute="bottom" secondItem="7lc-56-7au" secondAttribute="bottom" id="rB2-E8-AXK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="firstImage" destination="Su9-wN-7lp" id="FZe-d9-6ly"/>
+                <outlet property="fourthImage" destination="ya3-R7-hPR" id="JZr-e5-0Vv"/>
+                <outlet property="secondImage" destination="jfB-JU-nPJ" id="riY-4n-DEI"/>
+                <outlet property="thirdImage" destination="7lc-56-7au" id="7o4-aK-fZC"/>
+            </connections>
+            <point key="canvasLocation" x="340" y="293"/>
+        </tableViewCell>
+    </objects>
+</document>

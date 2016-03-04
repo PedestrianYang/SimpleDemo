@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="YSWHomeTwoAdCell" id="KGk-i7-Jjw" customClass="YSWHomeTwoAdCell">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O7N-gy-EUx" customClass="YSWImageClickView">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="99"/>
+                    </imageView>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FNp-ZP-H61" customClass="YSWImageClickView">
+                        <rect key="frame" x="180" y="0.0" width="180" height="99"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="O7N-gy-EUx" secondAttribute="bottom" id="33g-oc-FAD"/>
+                    <constraint firstItem="O7N-gy-EUx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BMr-si-YJk"/>
+                    <constraint firstAttribute="bottom" secondItem="FNp-ZP-H61" secondAttribute="bottom" id="JsN-Zr-E0N"/>
+                    <constraint firstItem="FNp-ZP-H61" firstAttribute="width" secondItem="O7N-gy-EUx" secondAttribute="width" id="Lj8-dQ-dqg"/>
+                    <constraint firstItem="O7N-gy-EUx" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1:2" id="O6Q-x4-WQB"/>
+                    <constraint firstItem="FNp-ZP-H61" firstAttribute="leading" secondItem="O7N-gy-EUx" secondAttribute="trailing" id="Qyh-4L-R6X"/>
+                    <constraint firstAttribute="trailing" secondItem="FNp-ZP-H61" secondAttribute="trailing" id="TJr-MN-jxk"/>
+                    <constraint firstItem="FNp-ZP-H61" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cF3-ab-ZAE"/>
+                    <constraint firstItem="O7N-gy-EUx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iA3-Xw-BRE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="firstImage" destination="O7N-gy-EUx" id="DcD-uN-aoo"/>
+                <outlet property="secondImage" destination="FNp-ZP-H61" id="lJw-SG-Wj8"/>
+            </connections>
+            <point key="canvasLocation" x="340" y="293"/>
+        </tableViewCell>
+    </objects>
+</document>
