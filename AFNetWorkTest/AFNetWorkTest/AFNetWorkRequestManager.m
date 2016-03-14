@@ -129,7 +129,7 @@
          */
         //        [formData appendPartWithFileData:data name:@"file" fileName:@"abc.png" mimeType:@"image/png"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"%@",uploadProgress.userInfo);
+        NSLog(@"%@",uploadProgress.fractionCompleted);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         uploadblock(task, responseObject, nil, 1.0);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
