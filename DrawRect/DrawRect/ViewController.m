@@ -29,47 +29,47 @@ typedef enum : NSUInteger {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _pointArray = [@[] mutableCopy];
+//    _pointArray = [@[] mutableCopy];
+//    
+//    _dispalyView = [[UIView alloc] initWithFrame:self.view.bounds];
+//    _dispalyView.backgroundColor = [UIColor grayColor];
+//    [self.view addSubview:_dispalyView];
+//    
+//    for (NSInteger i = 0; i < 3; i ++)
+//    {
+//        UILabel *lab1 = [[UILabel alloc] initWithFrame:CGRectMake(100, 20, 100, 20)];
+//        lab1.backgroundColor = [UIColor clearColor];
+//        lab1.text = @"dasdasd";
+//        lab1.tag = i + 11111;
+//        lab1.backgroundColor = [UIColor clearColor];
+//        lab1.font = [UIFont systemFontOfSize:16];
+//        
+//        CAShapeLayer *lablayer1 = [CAShapeLayer layer];
+//        lablayer1.frame = CGRectMake(-10, 0, lab1.frame.size.width, lab1.frame.size.height);
+//        UIBezierPath *path = [UIBezierPath bezierPath];
+//        [path moveToPoint:CGPointMake(0, 10)];
+//        [path addLineToPoint:CGPointMake(10, 0)];
+//        [path addLineToPoint:CGPointMake(100, 0)];
+//        [path addQuadCurveToPoint:CGPointMake(100, 20) controlPoint:CGPointMake(sqrtf(300.0) + 100, 10)];
+//        [path addLineToPoint:CGPointMake(10, 20)];
+//        [path addLineToPoint:CGPointMake(0, 10)];
+//        lablayer1.path = path.CGPath;
+//        
+//        
+//        lablayer1.fillColor = [UIColor clearColor].CGColor;
+//        lablayer1.strokeColor = [UIColor blackColor].CGColor;
+//        [lab1.layer addSublayer:lablayer1];
+//        
+//        lab1.layer.anchorPoint = CGPointMake(-4.0 / 25.0, 0.5);
+//        
+//        
+//        [self.view addSubview:lab1];
+//    }
     
-    _dispalyView = [[UIView alloc] initWithFrame:self.view.bounds];
-    _dispalyView.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:_dispalyView];
-    
-    for (NSInteger i = 0; i < 3; i ++)
-    {
-        UILabel *lab1 = [[UILabel alloc] initWithFrame:CGRectMake(100, 20, 100, 20)];
-        lab1.backgroundColor = [UIColor clearColor];
-        lab1.text = @"dasdasd";
-        lab1.tag = i + 11111;
-        lab1.backgroundColor = [UIColor clearColor];
-        lab1.font = [UIFont systemFontOfSize:16];
-        
-        CAShapeLayer *lablayer1 = [CAShapeLayer layer];
-        lablayer1.frame = CGRectMake(-10, 0, lab1.frame.size.width, lab1.frame.size.height);
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        [path moveToPoint:CGPointMake(0, 10)];
-        [path addLineToPoint:CGPointMake(10, 0)];
-        [path addLineToPoint:CGPointMake(100, 0)];
-        [path addQuadCurveToPoint:CGPointMake(100, 20) controlPoint:CGPointMake(sqrtf(300.0) + 100, 10)];
-        [path addLineToPoint:CGPointMake(10, 20)];
-        [path addLineToPoint:CGPointMake(0, 10)];
-        lablayer1.path = path.CGPath;
-        
-        
-        lablayer1.fillColor = [UIColor clearColor].CGColor;
-        lablayer1.strokeColor = [UIColor blackColor].CGColor;
-        [lab1.layer addSublayer:lablayer1];
-        
-        lab1.layer.anchorPoint = CGPointMake(-4.0 / 25.0, 0.5);
-        
-        
-        [self.view addSubview:lab1];
-    }
     
     
-    
-    //    [self start];
-    [self start1];
+        [self start];
+//    [self start1];
     
     
     
@@ -86,13 +86,13 @@ typedef enum : NSUInteger {
     UIBezierPath *path = [UIBezierPath bezierPath];
     //1
     
+
     path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(175 - 40, 100 - 40, 80, 80) cornerRadius:40];
     layer.path = path.CGPath;
     
-    [path moveToPoint:CGPointMake(175 + 10, 100)];
-    [path addArcWithCenter:CGPointMake(175, 100) radius:10 startAngle:M_PI endAngle:M_PI clockwise:NO];
+    [path moveToPoint:CGPointMake(175 - 15, 100 - 15)];
+    [path addArcWithCenter:CGPointMake(175, 100) radius:20 startAngle:(230.f / 180.f) * M_PI endAngle:(265.f / 180.f) * M_PI clockwise:YES];
 
-    
     //2
     CGPoint startPoint   = CGPointMake(50, 100);
     CGPoint endPoint     = CGPointMake(300, 100);
@@ -101,7 +101,7 @@ typedef enum : NSUInteger {
     
     [path moveToPoint:startPoint];
     [path addQuadCurveToPoint:endPoint controlPoint:controlPoint];
-    
+
     layer.path = path.CGPath;
     layer.fillColor = [UIColor clearColor].CGColor;
     layer.strokeColor = [UIColor blackColor].CGColor;
