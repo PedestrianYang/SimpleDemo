@@ -9,6 +9,9 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    var str : NSString = {
+        return "aaqa";
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
