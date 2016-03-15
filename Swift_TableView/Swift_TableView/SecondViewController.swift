@@ -8,16 +8,26 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
-    var str : NSString = {
-        return "aaqa";
-    }()
+//定义一个闭包
+typealias callBack = (string:String)->Void
 
+class SecondViewController: UIViewController {
+    var funObj: callBack?
+    func initWithfunObj(str:callBack?)
+    {
+        funObj = str
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "2"
         self.view.backgroundColor = UIColor.whiteColor()
+        let btn = UIButton(type: UIButtonType.Custom)
+        btn.frame = CGRectMake(20, 100, 100, 20)
+        btn.backgroundColor = UIColor.redColor();
+        btn.addTarget(self, action:"btnClick", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(btn)
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +35,14 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func btnClick()
+    {
+        if (funObj != nil)
+        {
+            funObj!(string: "111")
+        }
+        print("click")
+    }
     /*
     // MARK: - Navigation
 

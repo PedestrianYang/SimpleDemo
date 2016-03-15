@@ -48,7 +48,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let secondVC = SecondViewController()
+        secondVC.initWithfunObj(callBack)
         self.navigationController?.pushViewController(secondVC, animated: true)
     }
-
+    func callBack(sting : String) -> Void
+    {
+        print("\(sting)")
+    }
 }
