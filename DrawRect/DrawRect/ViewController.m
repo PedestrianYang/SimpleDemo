@@ -36,8 +36,9 @@ typedef enum : NSUInteger {
     //数据图
 //    [self start1];
     //名字
-    [self drawName];
-    
+//    [self drawName];
+    //镂空效果
+    [self drawHollowOutLayer];
     
     
 }
@@ -394,6 +395,23 @@ typedef enum : NSUInteger {
     layer2.path = path2.CGPath;
     [self.view.layer addSublayer:layer2];
     
+}
+
+- (void)drawHollowOutLayer
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width - 300) / 2.0, (self.view.bounds.size.height - 300) / 2.0, 300, 300)];
+    view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:view];
+    
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.view.bounds];
+    [path appendPath:[UIBezierPath bezierPathWithRect:CGRectMake((self.view.bounds.size.width - 200) / 2.0, (self.view.bounds.size.height - 200) / 2.0, 200, 200)]];
+    layer.path = path.CGPath;
+    layer.fillRule = kCAFillRuleEvenOdd;
+    layer.fillColor = [UIColor blackColor].CGColor;
+    layer.opacity = 0.5;
+    [self.view.layer addSublayer:layer];
 }
 
 @end
