@@ -26,8 +26,15 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     _qrview = [[QRcodeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [_qrview setScanResult:^(NSString *result) {
-        NSLog(@"%@",result);
+    [_qrview setScanResult:^(QRScanResultType type, NSString *result) {
+        if (type == QRScanResultType_Succeed)
+        {
+            NSLog(@"%@",result);
+        }
+        else
+        {
+            NSLog(@"扫描失败");
+        }
     }];
     [self.view addSubview:_qrview];
     

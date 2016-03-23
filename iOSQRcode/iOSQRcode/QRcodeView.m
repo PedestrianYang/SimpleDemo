@@ -125,8 +125,6 @@
         [self setup];
     }
     [_captureSession startRunning];
-    NSLog(@"开始");
-    
 }
 
 - (void)stopReading
@@ -134,10 +132,6 @@
     [_captureSession stopRunning];
 }
 
-- (void)dealloc
-{
-    NSLog(@"$fsadfasdfasdfas");
-}
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
@@ -147,14 +141,23 @@
     {
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         //判断回传的数据类型
-        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode])
+        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode] ||
+            [[metadataObj type] isEqualToString:AVMetadataObjectTypeEAN13Code] ||
+            [[metadataObj type] isEqualToString:AVMetadataObjectTypeEAN8Code] ||
+            [[metadataObj type] isEqualToString:AVMetadataObjectTypeCode128Code])
         {
             [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
             
             if (self.scanResult) {
-                self.scanResult([metadataObj stringValue]);
+                self.scanResult(QRScanResultType_Succeed,[metadataObj stringValue]);
             }
             
+        }
+    }
+    else
+    {
+        if (self.scanResult) {
+            self.scanResult(QRScanResultType_Fail,nil);
         }
     }
 }
@@ -166,7 +169,7 @@
     if (buttonIndex == 0)
     {
         //跳转设置界面
-        NSURL*url =[NSURL URLWithString:@"prefs:root=m.xinhua.iOSQRcode"];
+        NSURL*url =[NSURL URLWithString:[NSString stringWithFormat:@"prefs:root=%@",[[NSBundle mainBundle] bundleIdentifier]]];
         if([[UIApplication sharedApplication] canOpenURL:url])
         {
             [[UIApplication sharedApplication] openURL:url];

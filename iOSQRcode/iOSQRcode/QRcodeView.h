@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    QRScanResultType_Succeed,
+    QRScanResultType_Fail,
+} QRScanResultType;
 
 @interface QRcodeView : UIView
 
-@property (copy, nonatomic) void(^scanResult)(NSString *result);
+@property (copy, nonatomic) void(^scanResult)(QRScanResultType type, NSString *result);
 
 - (void)startReading;
 

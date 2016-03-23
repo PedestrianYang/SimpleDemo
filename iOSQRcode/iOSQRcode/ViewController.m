@@ -30,8 +30,6 @@
     [btn addTarget:self action:@selector(startScan) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 
-    CustomAlerView *alertViewc = [[CustomAlerView alloc] initWithTitle:@"提示" message:@"呵呵" clickAction:nil];
-    [self.view addSubview:alertViewc];
     
 }
 
@@ -42,6 +40,11 @@
 
 - (void)startScan
 {
+//    CustomAlerView *alertViewc = [[CustomAlerView alloc] initWithTitle:@"sdfsdfsdfsdfsdfsdfsdf" message:@"dfgksdjklfgnkwdjngkjwneklgrjnrekjrbnwgkjbgjw bgrjhwe hrgfjbwejhrgbwjheb" clickAction:^(NSInteger index) {
+//        NSLog(@"%@",@(index));
+//    }];
+//    [self.view addSubview:alertViewc];
+//    [alertViewc showAlertView];
     SecondViewController *secondVC = [[SecondViewController alloc] init];
     [self.navigationController pushViewController:secondVC animated:YES];
 }

@@ -13,4 +13,7 @@
 
 - (nullable id)initWithTitle:(nullable NSString *)title message:(nullable NSString *)message clickAction:(void(^ __nullable)(NSInteger index))click;
 
+- (void)showAlertView;
+- (void)hindenAlertView;
+
 @end
