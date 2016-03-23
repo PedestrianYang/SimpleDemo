@@ -32,13 +32,13 @@ typedef enum : NSUInteger {
    
     
     //画眼睛
-//    [self start];
+    [self start];
     //数据图
 //    [self start1];
     //名字
 //    [self drawName];
     //镂空效果
-    [self drawHollowOutLayer];
+//    [self drawHollowOutLayer];
     
     
 }

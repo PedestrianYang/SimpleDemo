@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SecondViewController.h"
+#import "CustomAlerView.h"
 
 @interface ViewController ()
 
@@ -28,6 +29,9 @@
     btn.center = self.view.center;
     [btn addTarget:self action:@selector(startScan) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+
+    CustomAlerView *alertViewc = [[CustomAlerView alloc] initWithTitle:@"提示" message:@"呵呵" clickAction:nil];
+    [self.view addSubview:alertViewc];
     
 }
 

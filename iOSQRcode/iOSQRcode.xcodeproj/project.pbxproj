@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9330EEE1CA11339002A1BE0 /* CustomAlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9330EED1CA11339002A1BE0 /* CustomAlerView.m */; };
 		D9AEA5781C9F8EE400CFDEC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEA5771C9F8EE400CFDEC4 /* main.m */; };
 		D9AEA57B1C9F8EE400CFDEC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEA57A1C9F8EE400CFDEC4 /* AppDelegate.m */; };
 		D9AEA57E1C9F8EE400CFDEC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEA57D1C9F8EE400CFDEC4 /* ViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D9330EEC1CA11339002A1BE0 /* CustomAlerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlerView.h; sourceTree = "<group>"; };
+		D9330EED1CA11339002A1BE0 /* CustomAlerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlerView.m; sourceTree = "<group>"; };
 		D9AEA5731C9F8EE400CFDEC4 /* iOSQRcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSQRcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AEA5771C9F8EE400CFDEC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D9AEA5791C9F8EE400CFDEC4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 				D9AEA5901C9FDE6700CFDEC4 /* QRcodeView.m */,
 				D9AEA5921C9FE47800CFDEC4 /* SecondViewController.h */,
 				D9AEA5931C9FE47800CFDEC4 /* SecondViewController.m */,
+				D9330EEC1CA11339002A1BE0 /* CustomAlerView.h */,
+				D9330EED1CA11339002A1BE0 /* CustomAlerView.m */,
 				D9AEA57F1C9F8EE400CFDEC4 /* Main.storyboard */,
 				D9AEA5821C9F8EE400CFDEC4 /* Assets.xcassets */,
 				D9AEA5841C9F8EE400CFDEC4 /* LaunchScreen.storyboard */,
@@ -168,6 +173,7 @@
 				D9AEA57E1C9F8EE400CFDEC4 /* ViewController.m in Sources */,
 				D9AEA57B1C9F8EE400CFDEC4 /* AppDelegate.m in Sources */,
 				D9AEA5781C9F8EE400CFDEC4 /* main.m in Sources */,
+				D9330EEE1CA11339002A1BE0 /* CustomAlerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOSQRcode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = m.xinhua.iOSQRcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -289,6 +296,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOSQRcode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = m.xinhua.iOSQRcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";

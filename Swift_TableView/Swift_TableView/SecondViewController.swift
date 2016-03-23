@@ -13,10 +13,6 @@ typealias callBack = (string:String)->Void
 
 class SecondViewController: UIViewController {
     var funObj: callBack?
-    func initWithfunObj(str:callBack?)
-    {
-        funObj = str
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "2"
@@ -37,10 +33,7 @@ class SecondViewController: UIViewController {
     
     func btnClick()
     {
-        if (funObj != nil)
-        {
-            funObj!(string: "111")
-        }
+        funObj?(string: "111")
         print("click")
     }
     /*

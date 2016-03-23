@@ -10,13 +10,12 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface QRcodeView ()<AVCaptureMetadataOutputObjectsDelegate>
-@property (strong, nonatomic) UIView *boxView;
+@property (nonatomic, strong) UIView *boxView;
 //捕捉会话
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 //展示layer
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
-@property (nonatomic) BOOL isReading;
-@property (strong, nonatomic) CALayer *scanLayer;
+@property (nonatomic, strong) CALayer *scanLayer;
 
 @end
 
@@ -48,7 +47,8 @@
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
         
-        NSLog(@"相机权限受限");
+        UIAlertView *alerview = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请打开相机权限" delegate:self cancelButtonTitle:@"设置" otherButtonTitles:@"取消", nil];
+        [alerview show];
         return;
     }
     
@@ -75,7 +75,9 @@
     //5.1.设置代理
     [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
     //5.2.设置输出媒体数据类型为QRCode
-    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
+//    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
+    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObjects:AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeQRCode, nil]];
+    
     //6.实例化预览图层
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
     //7.设置预览图层填充方式
@@ -113,9 +115,8 @@
     _scanLayer.frame = CGRectMake(0, 0, _boxView.bounds.size.width, 1);
     _scanLayer.backgroundColor = [UIColor brownColor].CGColor;
     [_boxView.layer addSublayer:_scanLayer];
-    
-}
 
+}
 
 - (void)startReading
 {
@@ -124,15 +125,13 @@
         [self setup];
     }
     [_captureSession startRunning];
-    _isReading = !_isReading;
+    NSLog(@"开始");
+    
 }
 
 - (void)stopReading
 {
     [_captureSession stopRunning];
-//    _captureSession = nil;
-//    [_scanLayer removeFromSuperlayer];
-//    [_videoPreviewLayer removeFromSuperlayer];
 }
 
 - (void)dealloc
@@ -160,5 +159,19 @@
     }
 }
 
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        //跳转设置界面
+        NSURL*url =[NSURL URLWithString:@"prefs:root=m.xinhua.iOSQRcode"];
+        if([[UIApplication sharedApplication] canOpenURL:url])
+        {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
+}
 
 @end

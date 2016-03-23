@@ -8,11 +8,14 @@
 
 import UIKit
 
+
+
 let ScreenWith = UIScreen.mainScreen().bounds.size.width
 let ScreenHeight = UIScreen.mainScreen().bounds.size.height
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    var _tableView :UITableView?
+    /*"!"表示一定有值 "?"表示不一定有值 在闭包传值中使用"?"可以不用判断该闭包是否为空 如果使用"!"则必须判断是否为空，否则会崩溃*/
+    var _tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "1"
@@ -22,6 +25,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         _tableView!.registerClass(CustomCell.classForCoder(), forCellReuseIdentifier: "CELLID")
         self.view.addSubview(_tableView!);
         // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +52,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let secondVC = SecondViewController()
-        secondVC.initWithfunObj(callBack)
+//        secondVC.funObj = callBack;
         self.navigationController?.pushViewController(secondVC, animated: true)
     }
     func callBack(sting : String) -> Void

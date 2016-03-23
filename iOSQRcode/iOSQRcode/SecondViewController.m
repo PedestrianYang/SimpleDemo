@@ -12,6 +12,7 @@
 @interface SecondViewController ()
 
 @property (nonatomic, strong) QRcodeView *qrview;
+@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
 
 @end
 
@@ -21,8 +22,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.view.backgroundColor = [UIColor blackColor];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     _qrview = [[QRcodeView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [_qrview setScanResult:^(NSString *result) {
@@ -30,12 +31,21 @@
     }];
     [self.view addSubview:_qrview];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.backgroundColor = [UIColor redColor];
-    btn.bounds = CGRectMake(0, 0, 100, 50);
-    btn.center = self.view.center;
-    [btn addTarget:self action:@selector(startScan) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    _indicatorView = [[UIActivityIndicatorView alloc] init];
+    _indicatorView.bounds = CGRectMake(0, 0, 40, 40);
+    _indicatorView.center = self.view.center;
+    _indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    _indicatorView.hidesWhenStopped = YES;
+    [self.view addSubview:_indicatorView];
+    [_indicatorView startAnimating];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [_qrview startReading];
+    [_indicatorView stopAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,10 +53,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)startScan
-{
-    [_qrview startReading];
-}
 
 - (void)dealloc
 {
