@@ -11,6 +11,7 @@ import UIKit
 //定义一个闭包
 typealias callBack = (string:String)->Void
 
+
 class SecondViewController: UIViewController {
     var funObj: callBack?
     override func viewDidLoad() {

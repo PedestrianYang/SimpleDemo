@@ -26,6 +26,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.view.addSubview(_tableView!);
         // Do any additional setup after loading the view.
 
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +44,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("CELLID") as! CustomCell
         cell.lab.text = "\(indexPath.row)"
+        cell.click = {
+            (titleStr: NSString) -> Void in
+            print("\(titleStr) \(indexPath.row)")
+        }
         return cell;
     }
     
@@ -52,11 +57,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let secondVC = SecondViewController()
-//        secondVC.funObj = callBack;
+        secondVC.funObj = {
+            (string:String)->Void in
+            print("\(string)")
+        };
         self.navigationController?.pushViewController(secondVC, animated: true)
     }
-    func callBack(sting : String) -> Void
-    {
-        print("\(sting)")
-    }
+
 }
