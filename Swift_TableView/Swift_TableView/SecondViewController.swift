@@ -58,7 +58,7 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.click = {
             //[unowned self] 标志，防止闭包循环引用，以致界面释放不掉
              [unowned self] (titleStr: NSString) -> Void in
-            print("\(titleStr,self.title) \(indexPath.row)")
+              print("\(titleStr,self.title) \(indexPath.row)")
         }
         return cell;
     }
@@ -76,6 +76,7 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
+    //对象释放时调用
     deinit{
         print("界面释放")
     }
