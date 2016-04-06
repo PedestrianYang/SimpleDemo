@@ -25,8 +25,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         _tableView!.registerClass(CustomCell.classForCoder(), forCellReuseIdentifier: "CELLID")
         self.view.addSubview(_tableView!);
         // Do any additional setup after loading the view.
-
-
     }
 
     override func didReceiveMemoryWarning() {
