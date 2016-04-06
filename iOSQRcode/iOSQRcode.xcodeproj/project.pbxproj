@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D912D5D01CB4ABCF004236A2 /* scanGrid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D912D5CF1CB4ABCF004236A2 /* scanGrid@2x.png */; };
+		D912D5D51CB4B686004236A2 /* scanqr1.png in Resources */ = {isa = PBXBuildFile; fileRef = D912D5D11CB4B686004236A2 /* scanqr1.png */; };
+		D912D5D61CB4B686004236A2 /* scanqr2.png in Resources */ = {isa = PBXBuildFile; fileRef = D912D5D21CB4B686004236A2 /* scanqr2.png */; };
+		D912D5D71CB4B686004236A2 /* scanqr3.png in Resources */ = {isa = PBXBuildFile; fileRef = D912D5D31CB4B686004236A2 /* scanqr3.png */; };
+		D912D5D81CB4B686004236A2 /* scanqr4.png in Resources */ = {isa = PBXBuildFile; fileRef = D912D5D41CB4B686004236A2 /* scanqr4.png */; };
+		D912D5DA1CB4B722004236A2 /* scanMagin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D912D5D91CB4B722004236A2 /* scanMagin@2x.png */; };
 		D9330EEE1CA11339002A1BE0 /* CustomAlerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9330EED1CA11339002A1BE0 /* CustomAlerView.m */; };
 		D9AEA5781C9F8EE400CFDEC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEA5771C9F8EE400CFDEC4 /* main.m */; };
 		D9AEA57B1C9F8EE400CFDEC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEA57A1C9F8EE400CFDEC4 /* AppDelegate.m */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D912D5CF1CB4ABCF004236A2 /* scanGrid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanGrid@2x.png"; sourceTree = "<group>"; };
+		D912D5D11CB4B686004236A2 /* scanqr1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanqr1.png; sourceTree = "<group>"; };
+		D912D5D21CB4B686004236A2 /* scanqr2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanqr2.png; sourceTree = "<group>"; };
+		D912D5D31CB4B686004236A2 /* scanqr3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanqr3.png; sourceTree = "<group>"; };
+		D912D5D41CB4B686004236A2 /* scanqr4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanqr4.png; sourceTree = "<group>"; };
+		D912D5D91CB4B722004236A2 /* scanMagin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanMagin@2x.png"; sourceTree = "<group>"; };
 		D9330EEC1CA11339002A1BE0 /* CustomAlerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlerView.h; sourceTree = "<group>"; };
 		D9330EED1CA11339002A1BE0 /* CustomAlerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlerView.m; sourceTree = "<group>"; };
 		D9AEA5731C9F8EE400CFDEC4 /* iOSQRcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSQRcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +89,12 @@
 				D9AEA57D1C9F8EE400CFDEC4 /* ViewController.m */,
 				D9AEA58F1C9FDE6700CFDEC4 /* QRcodeView.h */,
 				D9AEA5901C9FDE6700CFDEC4 /* QRcodeView.m */,
+				D912D5D91CB4B722004236A2 /* scanMagin@2x.png */,
+				D912D5CF1CB4ABCF004236A2 /* scanGrid@2x.png */,
+				D912D5D11CB4B686004236A2 /* scanqr1.png */,
+				D912D5D21CB4B686004236A2 /* scanqr2.png */,
+				D912D5D31CB4B686004236A2 /* scanqr3.png */,
+				D912D5D41CB4B686004236A2 /* scanqr4.png */,
 				D9AEA5921C9FE47800CFDEC4 /* SecondViewController.h */,
 				D9AEA5931C9FE47800CFDEC4 /* SecondViewController.m */,
 				D9330EEC1CA11339002A1BE0 /* CustomAlerView.h */,
@@ -156,8 +174,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9AEA5861C9F8EE400CFDEC4 /* LaunchScreen.storyboard in Resources */,
+				D912D5D71CB4B686004236A2 /* scanqr3.png in Resources */,
+				D912D5D81CB4B686004236A2 /* scanqr4.png in Resources */,
 				D9AEA5831C9F8EE400CFDEC4 /* Assets.xcassets in Resources */,
+				D912D5D51CB4B686004236A2 /* scanqr1.png in Resources */,
 				D9AEA5811C9F8EE400CFDEC4 /* Main.storyboard in Resources */,
+				D912D5D61CB4B686004236A2 /* scanqr2.png in Resources */,
+				D912D5DA1CB4B722004236A2 /* scanMagin@2x.png in Resources */,
+				D912D5D01CB4ABCF004236A2 /* scanGrid@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

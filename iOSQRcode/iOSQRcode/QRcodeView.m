@@ -10,12 +10,13 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface QRcodeView ()<AVCaptureMetadataOutputObjectsDelegate>
-@property (nonatomic, strong) UIView *boxView;
+@property (nonatomic, strong) UIImageView *boxView;
+@property (nonatomic, strong) UIImageView *scanPlayView;
 //捕捉会话
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 //展示layer
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
-@property (nonatomic, strong) CALayer *scanLayer;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -92,8 +93,11 @@
     maskLayer.frame = self.bounds;
     maskLayer.backgroundColor = [UIColor clearColor].CGColor;
     
+    CGFloat offsetX = 0.1;
+    CGFloat offsetY = 0.3;
+    
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.bounds];
-    [path appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(0, self.bounds.size.height * 0.2f, self.bounds.size.width, self.bounds.size.height - self.bounds.size.height * 0.4f)]];
+    [path appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(self.bounds.size.width * offsetX, self.bounds.size.height * offsetY - 20, self.bounds.size.width - self.bounds.size.width * offsetX * 2, self.bounds.size.height * (1- offsetY * 2))]];
     maskLayer.path = path.CGPath;
     maskLayer.fillRule = kCAFillRuleEvenOdd;
     maskLayer.fillColor = [UIColor blackColor].CGColor;
@@ -103,19 +107,29 @@
     
     
     //10.设置扫描范围
-    captureMetadataOutput.rectOfInterest = CGRectMake(0.2f, 0.2f, 0.8f, 0.8f);
+    captureMetadataOutput.rectOfInterest = CGRectMake(0.2, 0.2, 0.8f, 0.8f);
     //10.1.扫描框
-    _boxView = [[UIView alloc] initWithFrame:CGRectMake(1, self.bounds.size.height * 0.2f, self.bounds.size.width - 1, self.bounds.size.height * 0.6f)];
-    _boxView.layer.borderColor = [UIColor greenColor].CGColor;
-    _boxView.layer.borderWidth = 1.0f;
+    _boxView = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width * offsetX, self.bounds.size.height * offsetY - 20, self.bounds.size.width - self.bounds.size.width * offsetX * 2, self.bounds.size.height * (1- offsetY * 2))];
+    _boxView.image = [UIImage imageNamed:@"scanMagin"];
+    _boxView.clipsToBounds = YES;
     [self addSubview:_boxView];
     
-    //10.2.扫描线
-    _scanLayer = [[CALayer alloc] init];
-    _scanLayer.frame = CGRectMake(0, 0, _boxView.bounds.size.width, 1);
-    _scanLayer.backgroundColor = [UIColor brownColor].CGColor;
-    [_boxView.layer addSublayer:_scanLayer];
+    _scanPlayView = [[UIImageView alloc] initWithFrame:CGRectMake(0, - _boxView.frame.size.height, _boxView.frame.size.width, _boxView.frame.size.height)];
+    _scanPlayView.image = [UIImage imageNamed:@"scanGrid"];
+    [_boxView addSubview:_scanPlayView];
 
+}
+
+- (void)scanPlay
+{
+    CGRect frame = _scanPlayView.frame;
+    frame.origin.y += 1;
+    if (frame.origin.y >= 0)
+    {
+        frame.origin.y = - _boxView.frame.size.height;
+    }
+    
+    _scanPlayView.frame = frame;
 }
 
 - (void)startReading
@@ -125,11 +139,29 @@
         [self setup];
     }
     [_captureSession startRunning];
+    
+    NSThread *timerThread = [[NSThread alloc] initWithTarget:self selector:@selector(timerStart) object:nil];
+    [timerThread start];
+}
+
+- (void)timerStart
+{
+    @autoreleasepool
+    {
+        NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(scanPlay) userInfo:nil repeats:YES];
+        [runLoop run];
+    }
 }
 
 - (void)stopReading
 {
     [_captureSession stopRunning];
+    if (self.timer)
+    {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
 }
 
 
