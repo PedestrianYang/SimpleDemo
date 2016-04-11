@@ -18,14 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    AFNetWorkRequestManager *manager = [[AFNetWorkRequestManager alloc] init];
-    [manager downloadWithrequest:@"http://attach.bbs.miui.com/forum/201402/21/120043wsfuzzuefyasz3fe.jpg" downloadpath:[self imageSoourcePath:@"aaa"] downloadblock:^(id responseo, id filepath, NSError *error, CGFloat progress) {
-        if (progress == 1)
-        {
-            NSData *data = [NSData dataWithContentsOfFile:[self imageSoourcePath:@"aaa"]];
-            self.imageView.image = [UIImage imageWithData:data];
-        }
-    }];
+//    AFNetWorkRequestManager *manager = [[AFNetWorkRequestManager alloc] init];
+//    [manager downloadWithrequest:@"http://attach.bbs.miui.com/forum/201402/21/120043wsfuzzuefyasz3fe.jpg" downloadpath:[self imageSoourcePath:@"aaa"] downloadblock:^(id responseo, id filepath, NSError *error, CGFloat progress) {
+//        if (progress == 1)
+//        {
+//            NSData *data = [NSData dataWithContentsOfFile:[self imageSoourcePath:@"aaa"]];
+//            self.imageView.image = [UIImage imageWithData:data];
+//        }
+//    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

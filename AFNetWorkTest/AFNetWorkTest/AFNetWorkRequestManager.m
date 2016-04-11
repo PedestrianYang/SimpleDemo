@@ -24,7 +24,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     switch (type) {
-        case RequestGetType1:
+        case RequestGetType:
         {
             [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 resultBlock(responseObject,nil);
@@ -33,10 +33,10 @@
             }];
         }
             break;
-        case RequestPostType1:
+        case RequestPostType:
         {
             [manager POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                resultBlock(resultBlock,nil);
+                resultBlock(responseObject,nil);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 resultBlock(nil,error);
             }];
@@ -129,7 +129,7 @@
          */
         //        [formData appendPartWithFileData:data name:@"file" fileName:@"abc.png" mimeType:@"image/png"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"%@",uploadProgress.fractionCompleted);
+        NSLog(@"%@",@(uploadProgress.fractionCompleted));
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         uploadblock(task, responseObject, nil, 1.0);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
