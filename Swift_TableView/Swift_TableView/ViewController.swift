@@ -19,7 +19,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "1"
-        _tableView = UITableView(frame: CGRectMake(0, 100, ScreenWith, ScreenHeight - 100), style: UITableViewStyle.Plain)
+        _tableView = UITableView(frame: CGRectMake(0, 0, ScreenWith, ScreenHeight), style: UITableViewStyle.Plain)
         _tableView!.delegate = self
         _tableView!.dataSource = self
         _tableView!.registerClass(CustomCell.classForCoder(), forCellReuseIdentifier: "CELLID")

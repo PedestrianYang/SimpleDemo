@@ -23,8 +23,7 @@ class CustomCell: UITableViewCell
         super.init(coder: aDecoder)
         self.setUpCellView()
     }
-    
-    
+
     func setUpCellView ()
     {
         lab = UILabel.init(frame: CGRectMake(20, 50, 100, 200))
@@ -34,7 +33,7 @@ class CustomCell: UITableViewCell
         let btn = UIButton.init(type: UIButtonType.Custom)
         btn.frame = CGRectMake(CGRectGetMaxY(lab.frame), 10, 100, 40)
         btn.backgroundColor = UIColor.yellowColor()
-        btn.addTarget(self, action: "btnClik", forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action: #selector(self.btnClik), forControlEvents: UIControlEvents.TouchUpInside)
         self.addSubview(btn)
     }
     func btnClik()

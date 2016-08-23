@@ -19,14 +19,13 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         self.title = "2"
         self.view.backgroundColor = UIColor.whiteColor()
-        let btn = UIButton(type: UIButtonType.Custom)
-        btn.frame = CGRectMake(20, 100, 100, 20)
-        btn.backgroundColor = UIColor.redColor();
-        btn.addTarget(self, action:"btnClick", forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(btn)
+//        let btn = UIButton(type: UIButtonType.Custom)
+//        btn.frame = CGRectMake(20, 100, 100, 20)
+//        btn.backgroundColor = UIColor.redColor();
+//        btn.addTarget(self, action:#selector(self.btnClick), forControlEvents: UIControlEvents.TouchUpInside)
+//        self.view.addSubview(btn)
         // Do any additional setup after loading the view.
-        
-        _tableView = UITableView(frame: CGRectMake(0, 100, ScreenWith, ScreenHeight - 100), style: UITableViewStyle.Plain)
+        _tableView = UITableView(frame: CGRectMake(0, 64, ScreenWith, ScreenHeight), style: UITableViewStyle.Plain)
         _tableView!.delegate = self
         _tableView!.dataSource = self
         _tableView!.registerClass(CustomCell.classForCoder(), forCellReuseIdentifier: "CELLID")
@@ -69,12 +68,27 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let secondVC = SecondViewController()
-        secondVC.funObj = {
-            (string:String)->Void in
-            print("\(string,self.title)")
-        };
-        self.navigationController?.pushViewController(secondVC, animated: true)
+        //---1----
+//        secondVC.funObj = {
+//            (string:String)->Void in
+//            print("\(string,self.title)")
+//        };
+        //---2---
+        secondVC.funObj = self.secondCallback
+//        self.navigationController?.pushViewController(secondVC, animated: true)
+        
+        let thirdVC = ThirdViewController()
+        self.navigationController?.pushViewController(thirdVC, animated: true)
+
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.selected = false
+        
     }
+    
+    func secondCallback(string:String) -> Void{
+        print("\(string,self.title)")
+    }
+    
     
     //对象释放时调用
     deinit{

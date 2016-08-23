@@ -76,6 +76,15 @@
     group.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [_gLayer addAnimation:group forKey:nil];
     
+    NSMutableArray *arr = [@[@"asdasd",@"dasd",@"ddd",@"dasd",@"wqe11",@"111"] mutableCopy];
+    NSMutableArray *arr1 = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < 2; i ++) {
+        [arr1 addObject:arr[i]];
+    }
+    NSLog(@"%@",arr1);
+    NSString *str = arr[0];
+    str = nil;
+    NSLog(@"%@",arr1);
     
 }
 
