@@ -1,6 +1,0 @@
-version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
-options: "cd11156c9cd817322041578365d6dc5f"
-build_time: [1512368339, 571096000]
-inputs:
-  "/Users/ymq/Desktop/SimpleDemo/Swift_Sound/Swift_Sound/ViewController.swift": !dirty [1512368337, 0]
-  "/Users/ymq/Desktop/SimpleDemo/Swift_Sound/Swift_Sound/AppDelegate.swift": [1512356714, 0]
