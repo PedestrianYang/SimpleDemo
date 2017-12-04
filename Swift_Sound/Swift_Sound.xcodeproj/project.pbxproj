@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9650FC41FD516130016F9D4 /* GCDWebDAVServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650F9F1FD516130016F9D4 /* GCDWebDAVServer.m */; };
+		D9650FC61FD516130016F9D4 /* GCDWebUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FA31FD516130016F9D4 /* GCDWebUploader.m */; };
+		D9650FC71FD516130016F9D4 /* GCDWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FA71FD516130016F9D4 /* GCDWebServer.m */; };
+		D9650FC81FD516130016F9D4 /* GCDWebServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FA91FD516130016F9D4 /* GCDWebServerConnection.m */; };
+		D9650FC91FD516130016F9D4 /* GCDWebServerFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FAB1FD516130016F9D4 /* GCDWebServerFunctions.m */; };
+		D9650FCA1FD516130016F9D4 /* GCDWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FAF1FD516130016F9D4 /* GCDWebServerRequest.m */; };
+		D9650FCB1FD516130016F9D4 /* GCDWebServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FB11FD516130016F9D4 /* GCDWebServerResponse.m */; };
+		D9650FCC1FD516130016F9D4 /* GCDWebServerDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FB41FD516130016F9D4 /* GCDWebServerDataRequest.m */; };
+		D9650FCD1FD516130016F9D4 /* GCDWebServerFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FB61FD516130016F9D4 /* GCDWebServerFileRequest.m */; };
+		D9650FCE1FD516130016F9D4 /* GCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FB81FD516130016F9D4 /* GCDWebServerMultiPartFormRequest.m */; };
+		D9650FCF1FD516130016F9D4 /* GCDWebServerURLEncodedFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FBA1FD516130016F9D4 /* GCDWebServerURLEncodedFormRequest.m */; };
+		D9650FD01FD516130016F9D4 /* GCDWebServerDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FBD1FD516130016F9D4 /* GCDWebServerDataResponse.m */; };
+		D9650FD11FD516130016F9D4 /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FBF1FD516130016F9D4 /* GCDWebServerErrorResponse.m */; };
+		D9650FD21FD516130016F9D4 /* GCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FC11FD516130016F9D4 /* GCDWebServerFileResponse.m */; };
+		D9650FD31FD516130016F9D4 /* GCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D9650FC31FD516130016F9D4 /* GCDWebServerStreamedResponse.m */; };
+		D9650FD51FD516470016F9D4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D9650FD41FD516470016F9D4 /* libxml2.tbd */; };
+		D9650FD71FD5164F0016F9D4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D9650FD61FD5164F0016F9D4 /* libz.tbd */; };
+		D9650FE11FD51F350016F9D4 /* GCDWebUploader.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9650FA11FD516130016F9D4 /* GCDWebUploader.bundle */; };
+		D9D0ACC21FD14945005C657C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0ACC11FD14945005C657C /* AppDelegate.swift */; };
+		D9D0ACC41FD14945005C657C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D0ACC31FD14945005C657C /* ViewController.swift */; };
+		D9D0ACC71FD14945005C657C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9D0ACC51FD14945005C657C /* Main.storyboard */; };
+		D9D0ACC91FD14945005C657C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D0ACC81FD14945005C657C /* Assets.xcassets */; };
+		D9D0ACCC1FD14945005C657C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9D0ACCA1FD14945005C657C /* LaunchScreen.storyboard */; };
+		D9D0ACD51FD1495D005C657C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D0ACD41FD14955005C657C /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D9650F9E1FD516130016F9D4 /* GCDWebDAVServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebDAVServer.h; sourceTree = "<group>"; };
+		D9650F9F1FD516130016F9D4 /* GCDWebDAVServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebDAVServer.m; sourceTree = "<group>"; };
+		D9650FA11FD516130016F9D4 /* GCDWebUploader.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GCDWebUploader.bundle; sourceTree = "<group>"; };
+		D9650FA21FD516130016F9D4 /* GCDWebUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebUploader.h; sourceTree = "<group>"; };
+		D9650FA31FD516130016F9D4 /* GCDWebUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebUploader.m; sourceTree = "<group>"; };
+		D9650FA61FD516130016F9D4 /* GCDWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServer.h; sourceTree = "<group>"; };
+		D9650FA71FD516130016F9D4 /* GCDWebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServer.m; sourceTree = "<group>"; };
+		D9650FA81FD516130016F9D4 /* GCDWebServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerConnection.h; sourceTree = "<group>"; };
+		D9650FA91FD516130016F9D4 /* GCDWebServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerConnection.m; sourceTree = "<group>"; };
+		D9650FAA1FD516130016F9D4 /* GCDWebServerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFunctions.h; sourceTree = "<group>"; };
+		D9650FAB1FD516130016F9D4 /* GCDWebServerFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFunctions.m; sourceTree = "<group>"; };
+		D9650FAC1FD516130016F9D4 /* GCDWebServerHTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerHTTPStatusCodes.h; sourceTree = "<group>"; };
+		D9650FAD1FD516130016F9D4 /* GCDWebServerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerPrivate.h; sourceTree = "<group>"; };
+		D9650FAE1FD516130016F9D4 /* GCDWebServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerRequest.h; sourceTree = "<group>"; };
+		D9650FAF1FD516130016F9D4 /* GCDWebServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerRequest.m; sourceTree = "<group>"; };
+		D9650FB01FD516130016F9D4 /* GCDWebServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerResponse.h; sourceTree = "<group>"; };
+		D9650FB11FD516130016F9D4 /* GCDWebServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerResponse.m; sourceTree = "<group>"; };
+		D9650FB31FD516130016F9D4 /* GCDWebServerDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerDataRequest.h; sourceTree = "<group>"; };
+		D9650FB41FD516130016F9D4 /* GCDWebServerDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerDataRequest.m; sourceTree = "<group>"; };
+		D9650FB51FD516130016F9D4 /* GCDWebServerFileRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFileRequest.h; sourceTree = "<group>"; };
+		D9650FB61FD516130016F9D4 /* GCDWebServerFileRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFileRequest.m; sourceTree = "<group>"; };
+		D9650FB71FD516130016F9D4 /* GCDWebServerMultiPartFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerMultiPartFormRequest.h; sourceTree = "<group>"; };
+		D9650FB81FD516130016F9D4 /* GCDWebServerMultiPartFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerMultiPartFormRequest.m; sourceTree = "<group>"; };
+		D9650FB91FD516130016F9D4 /* GCDWebServerURLEncodedFormRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerURLEncodedFormRequest.h; sourceTree = "<group>"; };
+		D9650FBA1FD516130016F9D4 /* GCDWebServerURLEncodedFormRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerURLEncodedFormRequest.m; sourceTree = "<group>"; };
+		D9650FBC1FD516130016F9D4 /* GCDWebServerDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerDataResponse.h; sourceTree = "<group>"; };
+		D9650FBD1FD516130016F9D4 /* GCDWebServerDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerDataResponse.m; sourceTree = "<group>"; };
+		D9650FBE1FD516130016F9D4 /* GCDWebServerErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerErrorResponse.h; sourceTree = "<group>"; };
+		D9650FBF1FD516130016F9D4 /* GCDWebServerErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerErrorResponse.m; sourceTree = "<group>"; };
+		D9650FC01FD516130016F9D4 /* GCDWebServerFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFileResponse.h; sourceTree = "<group>"; };
+		D9650FC11FD516130016F9D4 /* GCDWebServerFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFileResponse.m; sourceTree = "<group>"; };
+		D9650FC21FD516130016F9D4 /* GCDWebServerStreamedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerStreamedResponse.h; sourceTree = "<group>"; };
+		D9650FC31FD516130016F9D4 /* GCDWebServerStreamedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerStreamedResponse.m; sourceTree = "<group>"; };
+		D9650FD41FD516470016F9D4 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		D9650FD61FD5164F0016F9D4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D9650FE01FD519390016F9D4 /* Swift_Sound-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift_Sound-Bridging-Header.h"; sourceTree = "<group>"; };
+		D9D0ACBE1FD14945005C657C /* Swift_Sound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift_Sound.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9D0ACC11FD14945005C657C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9D0ACC31FD14945005C657C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9D0ACC61FD14945005C657C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9D0ACC81FD14945005C657C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9D0ACCB1FD14945005C657C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9D0ACCD1FD14945005C657C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9D0ACD41FD14955005C657C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9D0ACBB1FD14945005C657C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D0ACD51FD1495D005C657C /* AVFoundation.framework in Frameworks */,
+				D9650FD71FD5164F0016F9D4 /* libz.tbd in Frameworks */,
+				D9650FD51FD516470016F9D4 /* libxml2.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9650F9D1FD516130016F9D4 /* GCDWebDAVServer */ = {
+			isa = PBXGroup;
+			children = (
+				D9650F9E1FD516130016F9D4 /* GCDWebDAVServer.h */,
+				D9650F9F1FD516130016F9D4 /* GCDWebDAVServer.m */,
+			);
+			name = GCDWebDAVServer;
+			path = "../../../temp/GCDWebServer-master/GCDWebDAVServer";
+			sourceTree = "<group>";
+		};
+		D9650FA01FD516130016F9D4 /* GCDWebUploader */ = {
+			isa = PBXGroup;
+			children = (
+				D9650FA11FD516130016F9D4 /* GCDWebUploader.bundle */,
+				D9650FA21FD516130016F9D4 /* GCDWebUploader.h */,
+				D9650FA31FD516130016F9D4 /* GCDWebUploader.m */,
+			);
+			name = GCDWebUploader;
+			path = "../../../temp/GCDWebServer-master/GCDWebUploader";
+			sourceTree = "<group>";
+		};
+		D9650FA41FD516130016F9D4 /* GCDWebServer */ = {
+			isa = PBXGroup;
+			children = (
+				D9650FA51FD516130016F9D4 /* Core */,
+				D9650FB21FD516130016F9D4 /* Requests */,
+				D9650FBB1FD516130016F9D4 /* Responses */,
+			);
+			name = GCDWebServer;
+			path = "../../../temp/GCDWebServer-master/GCDWebServer";
+			sourceTree = "<group>";
+		};
+		D9650FA51FD516130016F9D4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D9650FA61FD516130016F9D4 /* GCDWebServer.h */,
+				D9650FA71FD516130016F9D4 /* GCDWebServer.m */,
+				D9650FA81FD516130016F9D4 /* GCDWebServerConnection.h */,
+				D9650FA91FD516130016F9D4 /* GCDWebServerConnection.m */,
+				D9650FAA1FD516130016F9D4 /* GCDWebServerFunctions.h */,
+				D9650FAB1FD516130016F9D4 /* GCDWebServerFunctions.m */,
+				D9650FAC1FD516130016F9D4 /* GCDWebServerHTTPStatusCodes.h */,
+				D9650FAD1FD516130016F9D4 /* GCDWebServerPrivate.h */,
+				D9650FAE1FD516130016F9D4 /* GCDWebServerRequest.h */,
+				D9650FAF1FD516130016F9D4 /* GCDWebServerRequest.m */,
+				D9650FB01FD516130016F9D4 /* GCDWebServerResponse.h */,
+				D9650FB11FD516130016F9D4 /* GCDWebServerResponse.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D9650FB21FD516130016F9D4 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				D9650FB31FD516130016F9D4 /* GCDWebServerDataRequest.h */,
+				D9650FB41FD516130016F9D4 /* GCDWebServerDataRequest.m */,
+				D9650FB51FD516130016F9D4 /* GCDWebServerFileRequest.h */,
+				D9650FB61FD516130016F9D4 /* GCDWebServerFileRequest.m */,
+				D9650FB71FD516130016F9D4 /* GCDWebServerMultiPartFormRequest.h */,
+				D9650FB81FD516130016F9D4 /* GCDWebServerMultiPartFormRequest.m */,
+				D9650FB91FD516130016F9D4 /* GCDWebServerURLEncodedFormRequest.h */,
+				D9650FBA1FD516130016F9D4 /* GCDWebServerURLEncodedFormRequest.m */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		D9650FBB1FD516130016F9D4 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				D9650FBC1FD516130016F9D4 /* GCDWebServerDataResponse.h */,
+				D9650FBD1FD516130016F9D4 /* GCDWebServerDataResponse.m */,
+				D9650FBE1FD516130016F9D4 /* GCDWebServerErrorResponse.h */,
+				D9650FBF1FD516130016F9D4 /* GCDWebServerErrorResponse.m */,
+				D9650FC01FD516130016F9D4 /* GCDWebServerFileResponse.h */,
+				D9650FC11FD516130016F9D4 /* GCDWebServerFileResponse.m */,
+				D9650FC21FD516130016F9D4 /* GCDWebServerStreamedResponse.h */,
+				D9650FC31FD516130016F9D4 /* GCDWebServerStreamedResponse.m */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		D9D0ACB51FD14945005C657C = {
+			isa = PBXGroup;
+			children = (
+				D9D0ACC01FD14945005C657C /* Swift_Sound */,
+				D9D0ACBF1FD14945005C657C /* Products */,
+				D9D0ACD31FD14955005C657C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D9D0ACBF1FD14945005C657C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9D0ACBE1FD14945005C657C /* Swift_Sound.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9D0ACC01FD14945005C657C /* Swift_Sound */ = {
+			isa = PBXGroup;
+			children = (
+				D9650F9D1FD516130016F9D4 /* GCDWebDAVServer */,
+				D9650FA41FD516130016F9D4 /* GCDWebServer */,
+				D9650FA01FD516130016F9D4 /* GCDWebUploader */,
+				D9D0ACC11FD14945005C657C /* AppDelegate.swift */,
+				D9D0ACC31FD14945005C657C /* ViewController.swift */,
+				D9D0ACC51FD14945005C657C /* Main.storyboard */,
+				D9D0ACC81FD14945005C657C /* Assets.xcassets */,
+				D9D0ACCA1FD14945005C657C /* LaunchScreen.storyboard */,
+				D9D0ACCD1FD14945005C657C /* Info.plist */,
+				D9650FE01FD519390016F9D4 /* Swift_Sound-Bridging-Header.h */,
+			);
+			path = Swift_Sound;
+			sourceTree = "<group>";
+		};
+		D9D0ACD31FD14955005C657C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9650FD61FD5164F0016F9D4 /* libz.tbd */,
+				D9650FD41FD516470016F9D4 /* libxml2.tbd */,
+				D9D0ACD41FD14955005C657C /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9D0ACBD1FD14945005C657C /* Swift_Sound */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9D0ACD01FD14945005C657C /* Build configuration list for PBXNativeTarget "Swift_Sound" */;
+			buildPhases = (
+				D9D0ACBA1FD14945005C657C /* Sources */,
+				D9D0ACBB1FD14945005C657C /* Frameworks */,
+				D9D0ACBC1FD14945005C657C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Swift_Sound;
+			productName = Swift_Sound;
+			productReference = D9D0ACBE1FD14945005C657C /* Swift_Sound.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9D0ACB61FD14945005C657C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = ymq;
+				TargetAttributes = {
+					D9D0ACBD1FD14945005C657C = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = D9D0ACB91FD14945005C657C /* Build configuration list for PBXProject "Swift_Sound" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9D0ACB51FD14945005C657C;
+			productRefGroup = D9D0ACBF1FD14945005C657C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9D0ACBD1FD14945005C657C /* Swift_Sound */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9D0ACBC1FD14945005C657C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9650FE11FD51F350016F9D4 /* GCDWebUploader.bundle in Resources */,
+				D9D0ACCC1FD14945005C657C /* LaunchScreen.storyboard in Resources */,
+				D9D0ACC91FD14945005C657C /* Assets.xcassets in Resources */,
+				D9D0ACC71FD14945005C657C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9D0ACBA1FD14945005C657C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9650FC41FD516130016F9D4 /* GCDWebDAVServer.m in Sources */,
+				D9650FCD1FD516130016F9D4 /* GCDWebServerFileRequest.m in Sources */,
+				D9650FD31FD516130016F9D4 /* GCDWebServerStreamedResponse.m in Sources */,
+				D9D0ACC41FD14945005C657C /* ViewController.swift in Sources */,
+				D9650FD01FD516130016F9D4 /* GCDWebServerDataResponse.m in Sources */,
+				D9650FCF1FD516130016F9D4 /* GCDWebServerURLEncodedFormRequest.m in Sources */,
+				D9650FCC1FD516130016F9D4 /* GCDWebServerDataRequest.m in Sources */,
+				D9650FD11FD516130016F9D4 /* GCDWebServerErrorResponse.m in Sources */,
+				D9650FD21FD516130016F9D4 /* GCDWebServerFileResponse.m in Sources */,
+				D9650FC81FD516130016F9D4 /* GCDWebServerConnection.m in Sources */,
+				D9D0ACC21FD14945005C657C /* AppDelegate.swift in Sources */,
+				D9650FCA1FD516130016F9D4 /* GCDWebServerRequest.m in Sources */,
+				D9650FCE1FD516130016F9D4 /* GCDWebServerMultiPartFormRequest.m in Sources */,
+				D9650FCB1FD516130016F9D4 /* GCDWebServerResponse.m in Sources */,
+				D9650FC71FD516130016F9D4 /* GCDWebServer.m in Sources */,
+				D9650FC61FD516130016F9D4 /* GCDWebUploader.m in Sources */,
+				D9650FC91FD516130016F9D4 /* GCDWebServerFunctions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D9D0ACC51FD14945005C657C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9D0ACC61FD14945005C657C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D9D0ACCA1FD14945005C657C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9D0ACCB1FD14945005C657C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9D0ACCE1FD14945005C657C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D9D0ACCF1FD14945005C657C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9D0ACD11FD14945005C657C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3XD9Q7LLLN;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = Swift_Sound/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "m.xinhua.Swift-Sound";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ymq/Desktop/SimpleDemo/Swift_Sound/Swift_Sound/Swift_Sound-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D9D0ACD21FD14945005C657C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3XD9Q7LLLN;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = Swift_Sound/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "m.xinhua.Swift-Sound";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ymq/Desktop/SimpleDemo/Swift_Sound/Swift_Sound/Swift_Sound-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9D0ACB91FD14945005C657C /* Build configuration list for PBXProject "Swift_Sound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9D0ACCE1FD14945005C657C /* Debug */,
+				D9D0ACCF1FD14945005C657C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9D0ACD01FD14945005C657C /* Build configuration list for PBXNativeTarget "Swift_Sound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9D0ACD11FD14945005C657C /* Debug */,
+				D9D0ACD21FD14945005C657C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9D0ACB61FD14945005C657C /* Project object */;
+}

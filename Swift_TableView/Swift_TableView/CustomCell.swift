@@ -8,12 +8,12 @@
 
 import UIKit
 
-typealias clickAction = (titleStr: NSString) -> Void
+typealias clickAction = (_ titleStr: NSString) -> Void
 
 class CustomCell: UITableViewCell
 {
-    var lab : UILabel!
-    var click : clickAction?
+    @objc var lab : UILabel!
+    @objc var click : clickAction?
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setUpCellView()
@@ -24,20 +24,24 @@ class CustomCell: UITableViewCell
         self.setUpCellView()
     }
 
-    func setUpCellView ()
+    @objc func setUpCellView ()
     {
-        lab = UILabel.init(frame: CGRectMake(20, 50, 100, 200))
-        lab?.backgroundColor = UIColor.redColor()
+        
+        
+        lab = UILabel.init(frame: CGRect.init(x: 20, y: 50, width: 100, height: 200))
+        lab?.backgroundColor = UIColor.red
         self.addSubview(lab!)
         
-        let btn = UIButton.init(type: UIButtonType.Custom)
-        btn.frame = CGRectMake(CGRectGetMaxY(lab.frame), 10, 100, 40)
-        btn.backgroundColor = UIColor.yellowColor()
-        btn.addTarget(self, action: #selector(self.btnClik), forControlEvents: UIControlEvents.TouchUpInside)
+        let btn = UIButton.init(type: UIButtonType.custom)
+        btn.frame = CGRect(x: 10, y: 10, width: 100, height: 40)
+        btn.backgroundColor = UIColor.yellow
+        
+        btn.addTarget(self, action: #selector(btnClik), for: UIControlEvents.touchUpInside)
+    
         self.addSubview(btn)
     }
-    func btnClik()
+    @objc func btnClik()
     {
-        self.click?(titleStr: self.lab.text!);
+        self.click?(self.lab.text! as NSString);
     }
 }

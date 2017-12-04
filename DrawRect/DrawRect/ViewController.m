@@ -34,9 +34,9 @@ typedef enum : NSUInteger {
     //画眼睛
     [self start];
     //数据图
-//    [self start1];
+    [self start1];
     //名字
-//    [self drawName];
+    [self drawName];
     //镂空效果
 //    [self drawHollowOutLayer];
     
@@ -115,7 +115,7 @@ typedef enum : NSUInteger {
         [path moveToPoint:CGPointMake(0, 10)];
         [path addLineToPoint:CGPointMake(10, 0)];
         [path addLineToPoint:CGPointMake(100, 0)];
-        [path addQuadCurveToPoint:CGPointMake(100, 20) controlPoint:CGPointMake(sqrtf(300.0) + 100, 10)];
+        [path addQuadCurveToPoint:CGPointMake(100, 20) controlPoint:CGPointMake(sqrtf(125.0) + 100, 10)];
         [path addLineToPoint:CGPointMake(10, 20)];
         [path addLineToPoint:CGPointMake(0, 10)];
         lablayer1.path = path.CGPath;

@@ -60,6 +60,8 @@ static NSString *footerID = @"footer";
     return 2;
 }
 
+
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 {
     return 100;

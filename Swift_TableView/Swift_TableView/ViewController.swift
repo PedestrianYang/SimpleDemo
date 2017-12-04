@@ -10,19 +10,21 @@ import UIKit
 
 
 
-let ScreenWith = UIScreen.mainScreen().bounds.size.width
-let ScreenHeight = UIScreen.mainScreen().bounds.size.height
+let ScreenWith = UIScreen.main.bounds.size.width
+let ScreenHeight = UIScreen.main.bounds.size.height
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     /*"!"表示一定有值 "?"表示不一定有值 在闭包传值中使用"?"可以不用判断该闭包是否为空 如果使用"!"则必须判断是否为空，否则会崩溃*/
-    var _tableView :UITableView!
+    @objc var _tableView :UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "1"
-        _tableView = UITableView(frame: CGRectMake(0, 0, ScreenWith, ScreenHeight), style: UITableViewStyle.Plain)
+        
+        _tableView = UITableView(frame: CGRect(x: 0, y: 0, width: ScreenWith, height: ScreenHeight), style: UITableViewStyle.plain)
+
         _tableView!.delegate = self
         _tableView!.dataSource = self
-        _tableView!.registerClass(CustomCell.classForCoder(), forCellReuseIdentifier: "CELLID")
+        _tableView!.register(CustomCell.classForCoder(), forCellReuseIdentifier: "CELLID")
         self.view.addSubview(_tableView!);
         // Do any additional setup after loading the view.
     }
@@ -33,14 +35,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return 10;
     }
     
-    internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CELLID") as! CustomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELLID") as! CustomCell
         cell.lab.text = "\(indexPath.row)"
         cell.click = {
             (titleStr: NSString) -> Void in
@@ -49,11 +51,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell;
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300;
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let secondVC = SecondViewController()
         secondVC.funObj = {
             (string:String)->Void in

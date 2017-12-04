@@ -10,29 +10,35 @@ import UIKit
 
 class CustomViewLayout: UICollectionViewLayout {
     
-    var _layoutAttributes : [UICollectionViewLayoutAttributes]?
+    @objc var _layoutAttributes : [UICollectionViewLayoutAttributes]?
     
-    override func prepareLayout() {
-        
+    override func prepare() {
         if _layoutAttributes == nil {
             _layoutAttributes = []
         }else{
             _layoutAttributes?.removeAll()
         }
+        let sections = self.collectionView?.numberOfSections
         
-        let sections = self.collectionView?.numberOfSections()
-        
-        for section in 0...(sections! - 1) {
-            let rows = self.collectionView?.numberOfItemsInSection(section)
-            _layoutAttributes?.append(self.layoutAttributesForSupplementaryViewOfKind(UICollectionElementKindSectionHeader, atIndexPath: NSIndexPath(forRow: 0, inSection: section))!)
+        for section in 0...(sections! - 1){
+            
+            let rows = self.collectionView?.numberOfItems(inSection: section)
+            
+            _layoutAttributes?.append(self.layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: IndexPath(row: 0, section: section))!)
+            
             for row in 0...(rows! - 1) {
-                _layoutAttributes?.append(self.layoutAttributesForItemAtIndexPath(NSIndexPath(forRow: row, inSection: section))!)
+                _layoutAttributes?.append(self.layoutAttributesForItem(at: IndexPath(row: row, section: section))!)
             }
         }
+        
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+    
+
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?{
+        
+        
+        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         
         var width : CGFloat = 0.0
         var height: CGFloat = 50.0
@@ -40,10 +46,10 @@ class CustomViewLayout: UICollectionViewLayout {
         var y: CGFloat = 20.0
         
         if  indexPath.section != 0 {
-            y = self.getMaxY(indexPath.section - 1) + CGFloat(20)
+            y = self.getMaxY(section: indexPath.section - 1) + CGFloat(20)
         }
         
-        let screenWith = UIScreen.mainScreen().bounds.size.width
+        let screenWith = UIScreen.main.bounds.size.width
         width = CGFloat(screenWith) / CGFloat(2.0)
         
         if indexPath.row % 4 < 2 {
@@ -77,42 +83,51 @@ class CustomViewLayout: UICollectionViewLayout {
             break
         }
         
-        attributes.frame = CGRectMake(x, y, width, height)
+        attributes.frame = CGRect(x: x, y: y, width: width, height: height)
         
         return attributes
     }
     
-    override func layoutAttributesForSupplementaryViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: elementKind, withIndexPath: indexPath)
-        let y = indexPath.section == 0 ? CGFloat(0) : self.getMaxY(indexPath.section - 1)
+
+    
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         
-        attributes.frame = CGRectMake(0, y, UIScreen.mainScreen().bounds.size.width, 20)
+        
+        let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: elementKind, with: indexPath)
+        let y = indexPath.section == 0 ? CGFloat(0) : self.getMaxY(section: indexPath.section - 1)
+        
+        attributes.frame = CGRect(x: 0, y: y, width: UIScreen.main.bounds.size.width, height: 20)
         return attributes
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return _layoutAttributes
     }
     
-    override func collectionViewContentSize() -> CGSize {
-        return CGSizeMake(0, self.getMaxY((self.collectionView?.numberOfSections())! - 1))
+    
+    override var collectionViewContentSize: CGSize {
+        return CGSize(width: 0, height: self.getMaxY(section: (self.collectionView?.numberOfSections)! - 1))
     }
 
     //使用自定义layout，需要确定每一个cell的坐标，即不同section时，需要获取上一个scetion的最底层cell的坐标
-    func getMaxY(section: NSInteger) -> CGFloat {
+    @objc func getMaxY(section: NSInteger) -> CGFloat {
         let tempArray = _layoutAttributes! as NSArray
         var maxHeight = CGFloat(0.0)
         
-        tempArray.enumerateObjectsUsingBlock { (tempattributes, index, stop) in
+        
+        tempArray.enumerateObjects({ (tempattributes, index, stop) in
             let tempattributesaa = tempattributes as! UICollectionViewLayoutAttributes
             if tempattributesaa.indexPath.section == section
             {
-                let maxY = CGRectGetMaxY(tempattributesaa.frame)
+                
+                let maxY = tempattributesaa.frame.maxY
                 if maxY > maxHeight {
                     maxHeight = maxY
                 }
             }
-        }
+        })
+    
         
         return maxHeight
     }

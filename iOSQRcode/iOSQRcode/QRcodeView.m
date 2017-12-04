@@ -107,7 +107,7 @@
     
     
     //10.设置扫描范围
-    captureMetadataOutput.rectOfInterest = CGRectMake(0.2, 0.2, 0.8f, 0.8f);
+    captureMetadataOutput.rectOfInterest = CGRectMake(0.0, 0.0, 1.0f, 1.0f);
     //10.1.扫描框
     _boxView = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width * offsetX, self.bounds.size.height * offsetY - 20, self.bounds.size.width - self.bounds.size.width * offsetX * 2, self.bounds.size.height * (1- offsetY * 2))];
     _boxView.image = [UIImage imageNamed:@"scanMagin"];
@@ -168,6 +168,7 @@
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
+    NSLog(@"++++++");
     //判断是否有数据
     if (metadataObjects != nil && [metadataObjects count] > 0)
     {
@@ -178,7 +179,7 @@
             [[metadataObj type] isEqualToString:AVMetadataObjectTypeEAN8Code] ||
             [[metadataObj type] isEqualToString:AVMetadataObjectTypeCode128Code])
         {
-            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+//            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
             
             if (self.scanResult) {
                 self.scanResult(QRScanResultType_Succeed,[metadataObj stringValue]);
