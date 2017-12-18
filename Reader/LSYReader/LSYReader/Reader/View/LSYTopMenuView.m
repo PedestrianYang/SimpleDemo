@@ -71,7 +71,8 @@
 }
 -(void)backView
 {
-    [[LSYReadUtilites getCurrentVC] dismissViewControllerAnimated:YES completion:nil];
+    [(UINavigationController *)[LSYReadUtilites getCurrentVC] popViewControllerAnimated:YES];
+//    [[LSYReadUtilites getCurrentVC] dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)autoReadClick:(UIButton *)autoBtn{

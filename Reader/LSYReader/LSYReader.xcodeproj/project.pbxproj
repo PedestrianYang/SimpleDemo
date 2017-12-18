@@ -87,6 +87,8 @@
 		D96749951FE2227400C87153 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D96749941FE2227400C87153 /* libxml2.tbd */; };
 		D967499B1FE248EC00C87153 /* YMQChapterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D967499A1FE248EC00C87153 /* YMQChapterVC.m */; };
 		D967499D1FE25B5500C87153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB9A96C61CFC2EE80066030C /* Assets.xcassets */; };
+		D9B2C5711FE3CB0900034CA4 /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B2C5701FE3CB0900034CA4 /* UIViewController+Loading.m */; };
+		D9B2C5741FE3CB7900034CA4 /* CircleLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B2C5731FE3CB7900034CA4 /* CircleLoadView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,6 +243,10 @@
 		D96749941FE2227400C87153 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		D96749991FE248EC00C87153 /* YMQChapterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMQChapterVC.h; sourceTree = "<group>"; };
 		D967499A1FE248EC00C87153 /* YMQChapterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMQChapterVC.m; sourceTree = "<group>"; };
+		D9B2C56F1FE3CB0900034CA4 /* UIViewController+Loading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
+		D9B2C5701FE3CB0900034CA4 /* UIViewController+Loading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Loading.m"; sourceTree = "<group>"; };
+		D9B2C5721FE3CB7900034CA4 /* CircleLoadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleLoadView.h; sourceTree = "<group>"; };
+		D9B2C5731FE3CB7900034CA4 /* CircleLoadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleLoadView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +412,10 @@
 				D96749581FE213A300C87153 /* FileCollectionViewCell.m */,
 				D96749591FE213A300C87153 /* FileCollectionViewCell.xib */,
 				AB9A96E21CFC3AC60066030C /* LSYReader-Prefix.pch */,
+				D9B2C56F1FE3CB0900034CA4 /* UIViewController+Loading.h */,
+				D9B2C5701FE3CB0900034CA4 /* UIViewController+Loading.m */,
+				D9B2C5721FE3CB7900034CA4 /* CircleLoadView.h */,
+				D9B2C5731FE3CB7900034CA4 /* CircleLoadView.m */,
 				871E61791D127D880047AAFE /* libz.tbd */,
 				AB9A96C31CFC2EE80066030C /* Main.storyboard */,
 				AB9A96C61CFC2EE80066030C /* Assets.xcassets */,
@@ -700,8 +710,10 @@
 				AB9A96F41CFD27FC0066030C /* LSYChapterModel.mm in Sources */,
 				D96749851FE2224D00C87153 /* GCDWebServer.m in Sources */,
 				87D8BD311CFFE68E0087D8DA /* LSYReadView.m in Sources */,
+				D9B2C5741FE3CB7900034CA4 /* CircleLoadView.m in Sources */,
 				AB9A96D71CFC2F6C0066030C /* LSYReadViewController.m in Sources */,
 				871E61CC1D1282B80047AAFE /* unzip.c in Sources */,
+				D9B2C5711FE3CB0900034CA4 /* UIViewController+Loading.m in Sources */,
 				D967498C1FE2224D00C87153 /* GCDWebServerMultiPartFormRequest.m in Sources */,
 				AB9A96E11CFC3A6A0066030C /* LSYReadParser.m in Sources */,
 				D96749881FE2224D00C87153 /* GCDWebServerRequest.m in Sources */,

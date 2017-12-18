@@ -22,8 +22,9 @@ static NSString *cellID = @"cellID";
 @interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, GCDWebUploaderDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collection;
-@property (strong, nonatomic) NSArray *dataArray;
+@property (strong, nonatomic) NSMutableArray *dataArray;
 @property (strong, nonatomic) GCDWebUploader *webServer;
+@property (strong, nonatomic) NSArray *rootFilesPath;
 
 @end
 
@@ -37,13 +38,43 @@ static NSString *cellID = @"cellID";
     [_collection registerNib:[UINib nibWithNibName:@"FileCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:cellID];
 
     if (self.path == nil) {
-        self.path = NSHomeDirectory();
-        self.title = @"主目录";
+//        self.path = NSHomeDirectory();
+        self.path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//        self.title = @"主目录";
+        self.title = @"本地书籍";
     }else{
         self.title = [self.path lastPathComponent];;
     }
-    self.dataArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.path error:nil];
+    
+    _dataArray = [[NSMutableArray alloc] init];
+    self.rootFilesPath = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.path error:nil];
+    [self getBooks:self.rootFilesPath prePath:self.path];
+    [self.collection reloadData];
+    
+//    self.dataArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.path error:nil];
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)getBooks:(NSArray *)filePaths prePath:(NSString *)prePath{
+    [filePaths enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *childFileName = obj;
+        NSString *extension = childFileName.pathExtension;
+        if ([extension isEqualToString:@"txt"] || [extension isEqualToString:@"epub"]) {
+            NSString *bookPath = [NSString stringWithFormat:@"%@/%@", prePath, childFileName];
+            [_dataArray addObject:bookPath];
+        }else if (extension.length == 0){
+            NSString *childPath = [NSString stringWithFormat:@"%@/%@",prePath,childFileName];
+            NSArray *childFilesArry = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:childPath error:nil];
+            [self getBooks:childFilesArry prePath:childPath];
+        }
+    }];
+}
+
+
 
 - (void)setNavBarRightBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -92,44 +123,20 @@ static NSString *cellID = @"cellID";
     pageView.bookName = fileName;
     pageView.resourceURL = fileURL;    //文件位置
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        pageView.model = [LSYReadModel getLocalModelWithURL:fileURL];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-           
-            
-            [self presentViewController:pageView animated:YES completion:nil];
-        });
-    });
-    
-    
-   
-    
-}
-
-
-
-
-- (void)beginEPub:(NSString *)filePath {
-    
-    NSString *fileName = [[filePath lastPathComponent] stringByDeletingPathExtension];
-    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-    LSYReadPageViewController *pageView = [[LSYReadPageViewController alloc] init];
-    pageView.bookName = fileName;
-    pageView.resourceURL = fileURL;    //文件位置
+    [self showLoadingInView:self.view];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         pageView.model = [LSYReadModel getLocalModelWithURL:fileURL];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            
-            [self presentViewController:pageView animated:YES completion:nil];
+            [self hideLoad];
+            [self.navigationController pushViewController:pageView animated:YES];
+
         });
     });
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -169,16 +176,16 @@ static NSString *cellID = @"cellID";
 {
     NSString *filePath = _dataArray[indexPath.row];
     NSString *extension = filePath.pathExtension;
-    NSString *nextPagePath = [NSString stringWithFormat:@"%@/%@",self.path,filePath];
+
     if ([extension isEqualToString:@"txt"]) {
-        [self begin:nextPagePath];
+        [self begin:filePath];
     }else if ([extension isEqualToString:@"epub"]){
-        [self beginEPub:nextPagePath];
+        [self begin:filePath];
     }else if (extension.length == 0){
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        ViewController *nextPathVC = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
-        nextPathVC.path = nextPagePath;
-        [self.navigationController pushViewController:nextPathVC animated:YES];
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//        ViewController *nextPathVC = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+//        nextPathVC.path = nextPagePath;
+//        [self.navigationController pushViewController:nextPathVC animated:YES];
     }
 }
 
@@ -191,13 +198,15 @@ static NSString *cellID = @"cellID";
     FileCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     NSString *filePath = _dataArray[indexPath.row];
     NSString *extension = filePath.pathExtension;
-    cell.titleLab.text = filePath;
+    cell.titleLab.text = [[filePath lastPathComponent] stringByDeletingPathExtension];
     if ([extension isEqualToString:@"txt"]) {
         cell.iconImgView.image = [UIImage imageNamed:@"texticon"];
     }else if ([extension isEqualToString:@"epub"]){
-        NSString *coverImagePath = [NSString stringWithFormat:@"%@/%@/OPS/images/cover.jpg",self.path,[filePath stringByDeletingPathExtension]];
+        NSString *coverImagePath = [NSString stringWithFormat:@"%@/OPS/images/cover.jpg",[filePath stringByDeletingPathExtension]];
         if ([[NSFileManager defaultManager] fileExistsAtPath:coverImagePath]) {
             cell.iconImgView.image = [UIImage imageWithContentsOfFile:coverImagePath];
+        }else{
+            cell.iconImgView.image = [UIImage imageNamed:@"texticon"];
         }
 
     }else if (extension.length == 0){
@@ -215,6 +224,9 @@ static NSString *cellID = @"cellID";
 #pragma mark GCDWebUploaderDelegate
 - (void)webUploader:(GCDWebUploader*)uploader didUploadFileAtPath:(NSString*)path {
     NSLog(@"[UPLOAD] %@", path);
+    [_dataArray addObject:path];
+
+    [self.collection reloadData];
 }
 
 - (void)webUploader:(GCDWebUploader*)uploader didMoveItemFromPath:(NSString*)fromPath toPath:(NSString*)toPath {

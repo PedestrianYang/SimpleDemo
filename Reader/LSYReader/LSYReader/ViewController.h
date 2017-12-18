@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+Loading.h"
 
 @interface ViewController : UIViewController
 

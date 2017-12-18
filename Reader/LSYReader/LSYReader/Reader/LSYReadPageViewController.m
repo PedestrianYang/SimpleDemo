@@ -68,6 +68,11 @@ AVSpeechSynthesizerDelegate>
     [self setupAVPlayer];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 -(void)setupAVPlayer
 {
     _av = [[AVSpeechSynthesizer alloc] init];
@@ -81,7 +86,7 @@ AVSpeechSynthesizerDelegate>
     
     //设置歌曲题目
     
-    [dict setObject:_model.chapters[_chapter].title forKey:MPMediaItemPropertyTitle];
+    [dict setObject:_model.chapters[_chapter].title == nil ? @"":_model.chapters[_chapter].title forKey:MPMediaItemPropertyTitle];
     
     //设置歌手名
     
