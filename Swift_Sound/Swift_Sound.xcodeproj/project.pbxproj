@@ -31,6 +31,8 @@
 		D9D0ACC91FD14945005C657C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D0ACC81FD14945005C657C /* Assets.xcassets */; };
 		D9D0ACCC1FD14945005C657C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9D0ACCA1FD14945005C657C /* LaunchScreen.storyboard */; };
 		D9D0ACD51FD1495D005C657C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D0ACD41FD14955005C657C /* AVFoundation.framework */; };
+		F78CC8331FF2290200947AC7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CC8311FF2290200947AC7 /* CustomTableViewCell.swift */; };
+		F78CC8341FF2290200947AC7 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78CC8321FF2290200947AC7 /* CustomTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		D9D0ACCB1FD14945005C657C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9D0ACCD1FD14945005C657C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9D0ACD41FD14955005C657C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F78CC8311FF2290200947AC7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		F78CC8321FF2290200947AC7 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,8 @@
 				D9D0ACCA1FD14945005C657C /* LaunchScreen.storyboard */,
 				D9D0ACCD1FD14945005C657C /* Info.plist */,
 				D9650FE01FD519390016F9D4 /* Swift_Sound-Bridging-Header.h */,
+				F78CC8311FF2290200947AC7 /* CustomTableViewCell.swift */,
+				F78CC8321FF2290200947AC7 /* CustomTableViewCell.xib */,
 			);
 			path = Swift_Sound;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 				D9D0ACCC1FD14945005C657C /* LaunchScreen.storyboard in Resources */,
 				D96510101FD543340016F9D4 /* GCDWebUploader.bundle in Resources */,
 				D9D0ACC91FD14945005C657C /* Assets.xcassets in Resources */,
+				F78CC8341FF2290200947AC7 /* CustomTableViewCell.xib in Resources */,
 				D9D0ACC71FD14945005C657C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78CC8331FF2290200947AC7 /* CustomTableViewCell.swift in Sources */,
 				D965100F1FD543340016F9D4 /* GCDWebDAVServer.m in Sources */,
 				D96510181FD543340016F9D4 /* GCDWebServerFileRequest.m in Sources */,
 				D965101E1FD543340016F9D4 /* GCDWebServerStreamedResponse.m in Sources */,
@@ -458,7 +466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "m.xinhua.Swift-Sound";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ymq/Desktop/SimpleDemo/Swift_Sound/Swift_Sound/Swift_Sound-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/iyunshu/Desktop/GitHub/SimpleDemo/Swift_Sound/Swift_Sound/Swift_Sound-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -479,7 +487,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "m.xinhua.Swift-Sound";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ymq/Desktop/SimpleDemo/Swift_Sound/Swift_Sound/Swift_Sound-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/iyunshu/Desktop/GitHub/SimpleDemo/Swift_Sound/Swift_Sound/Swift_Sound-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

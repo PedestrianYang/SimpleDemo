@@ -10,36 +10,44 @@ import UIKit
 import AVFoundation
 
 
-class ViewController: UIViewController, AVSpeechSynthesizerDelegate, GCDWebUploaderDelegate{
+class ViewController: UIViewController, AVSpeechSynthesizerDelegate, GCDWebUploaderDelegate, UITableViewDelegate, UITableViewDataSource{
     var av: AVSpeechSynthesizer!
     var utterance : AVSpeechUtterance!
     var webServer : GCDWebUploader!
     
+    @IBOutlet weak var tableView: UITableView!
+    var dataArry : NSArray!
+    var prototypeCell : CustomTableViewCell!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let button: UIButton = UIButton(type: UIButtonType.custom)
-        button.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
-        button.setTitle("讲", for: UIControlState.normal)
-        button.setTitle("停", for: UIControlState.selected)
-        button.setTitleColor(UIColor.blue, for: UIControlState.normal)
-        button.backgroundColor = UIColor.gray
-        button.showsTouchWhenHighlighted = true
-        button.addTarget(self, action: #selector(start(btn:)), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(button)
         
-        setupAVPlayer()
+        tableView.register(UINib.init(nibName: "CustomTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "cellid")
+        tableView.estimatedRowHeight = 100
+        prototypeCell = tableView.dequeueReusableCell(withIdentifier: "cellid") as! CustomTableViewCell
         
-        utterance = AVSpeechUtterance(string: "锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。")
-        utterance.rate = 0.5
-        let voice = AVSpeechSynthesisVoice(language: "zh-CN")
-        utterance.voice = voice
+//        let button: UIButton = UIButton(type: UIButtonType.custom)
+//        button.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
+//        button.setTitle("讲", for: UIControlState.normal)
+//        button.setTitle("停", for: UIControlState.selected)
+//        button.setTitleColor(UIColor.blue, for: UIControlState.normal)
+//        button.backgroundColor = UIColor.gray
+//        button.showsTouchWhenHighlighted = true
+//        button.addTarget(self, action: #selector(start(btn:)), for: UIControlEvents.touchUpInside)
+//        self.view.addSubview(button)
+        
+//        setupAVPlayer()
+        dataArry = ["锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。","锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。","锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。","锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。","锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。",]
+//        utterance = AVSpeechUtterance(string: "锦瑟无端五十弦，一弦一柱思华年。庄生晓梦迷蝴蝶，望帝春心托杜鹃。沧海月明珠有泪，蓝田日暖玉生烟。此情可待成追忆，只是当时已惘然。")
+//        utterance.rate = 0.5
+//        let voice = AVSpeechSynthesisVoice(language: "zh-CN")
+//        utterance.voice = voice
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleInterreption(sender:)), name: NSNotification.Name.AVAudioSessionInterruption, object: nil)
         
-        setupService();
+//        setupService();
         
     }
     
@@ -148,6 +156,34 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate, GCDWebUploa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: ------------ UITableViewDelegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArry.count;
+    }
+    
+    // MARK: ------------UITableViewDataSource
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellid") as! CustomTableViewCell
+        cell.contentLab.text = dataArry.object(at: indexPath.row) as? String
+        cell.namel.text = "\(indexPath.row)"
+        return cell
+    }
+    
+    
+    //若要使用systemLayoutSizeFitting自适应高度，需要cell的xib文件中设置约束
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        prototypeCell.contentLab.text = dataArry.object(at: indexPath.row) as? String
+        
+        let widthFenceConstraint = NSLayoutConstraint(item: prototypeCell.contentView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: tableView.bounds.size.width - 20)
+        prototypeCell.contentView.addConstraint(widthFenceConstraint)
+        
+        let fittingHeight = prototypeCell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        prototypeCell.contentView.removeConstraint(widthFenceConstraint)
+        
+        return fittingHeight + 2*1/UIScreen.main.scale
     }
     
     // MARK: ------------GCDWebUploaderDelegate

@@ -124,9 +124,7 @@ static NSString *cellID = @"cellID";
     pageView.resourceURL = fileURL;    //文件位置
     
     [self showLoadingInView:self.view];
-    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
         pageView.model = [LSYReadModel getLocalModelWithURL:fileURL];
         
         dispatch_async(dispatch_get_main_queue(), ^{

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellid" rowHeight="203" id="KGk-i7-Jjw" customClass="CustomTableViewCell" customModule="Swift_Sound" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="202.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="敖德萨所大所大敖德萨所大所大敖德萨所大所大敖德萨所大所大敖德萨所大所大敖德萨所大所大敖德萨所大所大敖德萨所大所大" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53k-jb-FSr">
+                        <rect key="frame" x="16" y="171.5" width="343" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROh-rM-Ug7">
+                        <rect key="frame" x="16" y="20" width="343" height="143.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="53k-jb-FSr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="39x-4u-pr9"/>
+                    <constraint firstItem="ROh-rM-Ug7" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="3fD-Ks-HDb"/>
+                    <constraint firstItem="ROh-rM-Ug7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="DVu-fs-72K"/>
+                    <constraint firstItem="53k-jb-FSr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="KRy-Wo-4pS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="53k-jb-FSr" secondAttribute="bottom" id="Vqa-DQ-D2d"/>
+                    <constraint firstItem="ROh-rM-Ug7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="hGC-LX-9kR"/>
+                    <constraint firstItem="53k-jb-FSr" firstAttribute="top" secondItem="ROh-rM-Ug7" secondAttribute="bottom" constant="8" id="jKJ-s4-8h0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentLab" destination="53k-jb-FSr" id="doo-TL-2CH"/>
+                <outlet property="namel" destination="ROh-rM-Ug7" id="Q5Q-fV-rhn"/>
+            </connections>
+            <point key="canvasLocation" x="-225.5" y="-21.5"/>
+        </tableViewCell>
+    </objects>
+</document>

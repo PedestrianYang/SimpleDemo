@@ -65,7 +65,12 @@ AVSpeechSynthesizerDelegate>
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addNotes:) name:LSYNoteNotification object:nil];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self setupAVPlayer];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 耗时的操作
+        [self setupAVPlayer];
+    });
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -11,7 +11,7 @@
 #import "ZipArchive.h"
 #import "TouchXML.h"
 @implementation LSYReadUtilites
-+(void)separateChapter:(NSMutableArray **)chapters content:(NSString *)content
++(void)separateChapter:(NSMutableArray * __autoreleasing *)chapters content:(NSString *)content
 {
     [*chapters removeAllObjects];
     NSString *parten = @"第[0-9一二三四五六七八九十百千]*[章回].*";

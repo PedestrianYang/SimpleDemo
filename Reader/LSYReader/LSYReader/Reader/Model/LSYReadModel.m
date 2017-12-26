@@ -103,15 +103,15 @@
     NSKeyedUnarchiver *unarchive = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
     LSYReadModel *model = [unarchive decodeObjectForKey:key];
     
-    if ([model.font floatValue] != [LSYReadConfig shareInstance].fontSize) {
-        if ([[key pathExtension] isEqualToString:@"txt"]) {
-            LSYReadModel *model = [[LSYReadModel alloc] initWithContent:[LSYReadUtilites encodeWithURL:url]];
-            model.resource = url;
-            [LSYReadModel updateLocalModel:model url:url];
-            return model;
-        }
-    }
-    
+//    if ([model.font floatValue] != [LSYReadConfig shareInstance].fontSize) {
+//        if ([[key pathExtension] isEqualToString:@"txt"]) {
+//            LSYReadModel *model = [[LSYReadModel alloc] initWithContent:[LSYReadUtilites encodeWithURL:url]];
+//            model.resource = url;
+//            [LSYReadModel updateLocalModel:model url:url];
+//            return model;
+//        }
+//    }
+
     return model;
 }
 - (NSUInteger)getPageIndexByOffset:(NSUInteger)offset Chapter:(NSUInteger)chapterIndex {
